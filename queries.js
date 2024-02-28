@@ -1,4 +1,4 @@
-const connection = require("db")
+const connection = require("./db")
 
 const queries = {
     allDepartments: function(){
@@ -42,7 +42,7 @@ const queries = {
                 if (err) {
                     reject(err);
                 } else {
-                    resole(results.insertId)
+                    resolve(results.insertId)
                 }
             })
         })
@@ -61,10 +61,10 @@ const queries = {
         })
     }, 
 
-    addEmployee: function(firstName, lastName, roleId, managerId){
+    newEmployee: function(firstName, lastName, roleId, managerId){
         const sql = "INSERT INTO employee (firstName, lastName, roleId, managerId) Values (?, ?, ?, ?)";
         return new Promise((resolve, reject) => {
-            connection.query(sql, [firstName, lastName, jobId, managerId], (err, results) => {
+            connection.query(sql, [firstName, lastName, roleId, managerId], (err, results) => {
                 if (err) {
                     reject(err);
                 } else {
