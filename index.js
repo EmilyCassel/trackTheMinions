@@ -1,6 +1,7 @@
 const inquirer = require("inquirer")
 const queries = require("./queries")
 
+
 function startTracking() {
     inquirer.prompt([
         {
